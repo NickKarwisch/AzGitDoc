@@ -80,7 +80,9 @@ The Mobility service must be installed on each server you want to replicate. Sit
 - For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine. To do this, in the register under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
 - To add the registry entry to disable the setting from a CLI, type:
   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
-- For Linux, the account should be root on the source Linux server.
+- For Linux, the account used for agent installation should be one of the following:
+    - The in-built `root` account.
+    - A root account with an `Effective User ID` equal to `0`.
 
 
 ## Create a vault
